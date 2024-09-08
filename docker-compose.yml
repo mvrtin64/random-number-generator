@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./random-number:/usr/src/app
+
+  frontend:
+    build: ./random-roulette
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./random-roulette:/usr/src/app
+    depends_on:
+      - backend
